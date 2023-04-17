@@ -168,6 +168,7 @@ def pregunta_10():
     """
     table = pd.DataFrame()
     table['_c1'] = sorted(tbl0['_c1'].unique())
+    table.set_index('_c1', inplace=True)
     table['_c2'] = list(tbl0.groupby('_c1')._c2.apply(lambda x: ':'.join(x.astype(str).sort_values())))
     
     return table
